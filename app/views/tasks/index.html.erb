@@ -1,7 +1,16 @@
-<h1>All restaurants</h1>
+<h1>All tasks</h1>
 <ul>
   <% @tasks.each do |task| %>
-  <li><%= task.title %></li>
+  <li>
+    <%= task.completed ? "[x]" : "[ ]" %>
+    <%= link_to task.title, task_path(task) %>
+    <%= link_to "Delete task", task_path(task), method: :delete%>
+  </li>
   <% end %>
-
 </ul>
+
+<p><%= link_to "Create new task", tasks_new_path %></p>
+
+
+
+
